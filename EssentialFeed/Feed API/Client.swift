@@ -7,12 +7,14 @@
 
 import Foundation
 
-public protocol Client:AnyObject {
-    var requestedURL:URL? { get set}
-    func get(from:URL)
+public enum HTTPClientResponse {
+    case success(Data, HTTPURLResponse)
+    case failure(Error)
 }
-extension Client {
-    public func get(from: URL) {
-        requestedURL = from
-    }
+
+public protocol Client:AnyObject {
+    func get(
+        from url:URL,
+        completion:@escaping (HTTPClientResponse) -> Void
+    )
 }

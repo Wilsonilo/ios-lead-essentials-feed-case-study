@@ -7,6 +7,15 @@
 
 import Foundation
 
-class HTTPClient:Client{
-    var requestedURL:URL?
+class HTTPClient:Client {
+    
+    var requestedURLs: [URL] = []
+    
+    public func get(
+        from: URL,
+        completion:@escaping (HTTPClientResponse) -> Void
+    ) {
+        requestedURLs.append(from)
+    }
+
 }
