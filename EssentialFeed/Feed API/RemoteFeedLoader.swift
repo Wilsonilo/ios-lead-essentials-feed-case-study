@@ -7,14 +7,12 @@
 
 import Foundation
 
-public final class RemoteFeedLoader {
+public final class RemoteFeedLoader:FeedLoader {
+
     
+    public typealias Result = LoadFeedResult
     public enum Error: Swift.Error {
         case connectivity, invalidData
-    }
-    
-    public enum Result:Equatable {
-        case success([FeedItem]), failure(Error)
     }
     
     private let client:Client
@@ -25,14 +23,14 @@ public final class RemoteFeedLoader {
         self.url    = url
     }
     
-    public func load (completion:@escaping (Result)-> Void) {
-        client.get(from: url) {[weak self] response in
+    public func load (completion:@escaping (LoadFeedResult)-> Void) {
+        client.get(from: url) { [weak self] response in
             guard self != nil else { return }
             switch response {
             case .success(let data,  let response):
                 completion(FeedItemsMapper.map(data, from: response))
             case .failure(_):
-                completion(.failure(.connectivity))
+                completion(.failure(Error.connectivity))
             }
             
         }

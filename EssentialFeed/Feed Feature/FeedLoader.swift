@@ -7,14 +7,14 @@
 
 /// We start with a generic Error, we can start creating our error type with an
 /// enum but is too early
-enum LoadFeedResult {
+public enum LoadFeedResult {
     case success([FeedItem])
-    case error(Error)
+    case failure(Error)
 }
 
 
 /// We use our completion type, but we don't throw errors for now we deliver it
 /// as a closure for now
 protocol FeedLoader {
-    func loadItems(completion:@escaping(LoadFeedResult)->Void)
+    func load(completion:@escaping(LoadFeedResult)->Void)
 }
