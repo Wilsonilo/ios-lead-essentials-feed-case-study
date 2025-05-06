@@ -15,10 +15,10 @@ public final class RemoteFeedLoader:FeedLoader {
         case connectivity, invalidData
     }
     
-    private let client:Client
+    private let client:HTTPCLient
     private let url:URL
     
-    public init(client: Client, url: URL) {
+    public init(client: HTTPCLient, url: URL) {
         self.client = client
         self.url    = url
     }

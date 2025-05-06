@@ -7,7 +7,19 @@
 
 import Foundation
 
-class HTTPClient:Client {
+public enum HTTPClientResponse {
+    case success(Data, HTTPURLResponse)
+    case failure(Error)
+}
+
+public protocol HTTPCLient:AnyObject {
+    func get(
+        from url:URL,
+        completion:@escaping (HTTPClientResponse) -> Void
+    )
+}
+
+class HTTPClient:HTTPCLient {
     
     var requestedURLs: [URL] = []
     

@@ -233,7 +233,7 @@ final class RemoteFeedLoaderTest: XCTestCase {
     /// This is our baseline implementation of `Client`
     /// This guys change methods and add variables to test
     /// they have different process for each `Client` meaning the code in here is different from the production code on `HTTPClient` this is to test.
-    private class TestingHTTPClient:Client {
+    private class TestingHTTPClient:HTTPCLient {
         
         private var messages = [(url:URL, completion:(HTTPClientResponse) -> Void)]()
         var requestedURLs:[URL] {

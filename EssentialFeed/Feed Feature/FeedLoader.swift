@@ -15,6 +15,6 @@ public enum LoadFeedResult {
 
 /// We use our completion type, but we don't throw errors for now we deliver it
 /// as a closure for now
-protocol FeedLoader {
+public protocol FeedLoader {
     func load(completion:@escaping(LoadFeedResult)->Void)
 }
