@@ -152,21 +152,6 @@ final class RemoteFeedLoaderTest: XCTestCase {
         
     }
     
-    private func trackForMemoryLeaks(_ instance:AnyObject,
-                                     file: StaticString = #filePath,
-                                     line:UInt = #line) {
-        // We check if the instance created is free in memory
-        // With this we check against retain cycles.
-        addTeardownBlock {[weak instance] in
-            XCTAssertNil(
-                instance,
-                "Instance should be deallocated. Potential memory leak",
-                file:file,
-                line: line
-            )
-        }
-    }
-    
     private func makeItem(
         id:UUID,
         description:String? = nil,
