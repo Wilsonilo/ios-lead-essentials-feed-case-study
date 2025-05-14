@@ -23,6 +23,7 @@
 /* Begin PBXFileReference section */
 		BEB00F112DB68C9700F83DD7 /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB00F1B2DB68C9800F83DD7 /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BED227E82DD54EE900E3B3C4 /* EssentialFeed.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeed.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -73,6 +74,7 @@
 		BEB00F072DB68C9700F83DD7 = {
 			isa = PBXGroup;
 			children = (
+				BED227E82DD54EE900E3B3C4 /* EssentialFeed.xctestplan */,
 				BEB00F132DB68C9700F83DD7 /* EssentialFeed */,
 				BEB00F1F2DB68C9800F83DD7 /* EssentialFeedTests */,
 				BEB00F122DB68C9700F83DD7 /* Products */,
