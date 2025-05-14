@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main # Or your main branch name (e.g., master)
+
+jobs:
+  build_and_test:
+    runs-on: macos-13 # You can specify other macOS versions
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Select Xcode
+      run: sudo xcode-select -switch /Applications/Xcode_14.2.app
+
+    - name: List Xcode versions
+      run: xcodebuild -showsdks
+
+    - name: Build and Test
+      run: xcodebuild clean build test -project EssentialFeed.xcodeproj -scheme "CI" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14'
