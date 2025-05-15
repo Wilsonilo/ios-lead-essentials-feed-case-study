@@ -2,6 +2,7 @@
 
 My following of the course, inspiration:
 https://github.com/essentialdevelopercom/essential-feed-case-study
+![CI](https://github.com/Wilsonilo/ios-lead-essentials-feed-case-study/actions/workflows/main.yml/badge.svg)
 
 
 ## Image Feed Feature Specs
