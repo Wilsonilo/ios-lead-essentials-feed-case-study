@@ -81,7 +81,12 @@ class EssentialFeedEndToEndTests:XCTestCase {
     private func getFeedResult(file: StaticString = #filePath,
                                line:UInt = #line)->LoadFeedResult? {
         let testServerURL = URL(string: "https://essentialdeveloper.com/feed-case-study/test-api/feed")!
-        let client = URLSessionHTTPClient()
+        
+        /// Passing an URL Session ephemeral disables caching the data on disk
+        /// So when we run and don't have connection we don't get cached data.
+        let client = URLSessionHTTPClient(session: URLSession(
+            configuration: .ephemeral
+        ))
         let loader = RemoteFeedLoader(client: client, url: testServerURL)
         trackForMemoryLeaks(client, file:file, line:line)
         trackForMemoryLeaks(loader, file:file, line:line)
