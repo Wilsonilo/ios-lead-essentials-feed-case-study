@@ -8,7 +8,7 @@
 import XCTest
 import EssentialFeed
 
-final class RemoteFeedLoaderTest: XCTestCase {
+final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     
     /// On Init, check urls are empty.
     func test_init_doesNotRequestDataFromURL(){
